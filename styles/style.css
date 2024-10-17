@@ -16,6 +16,8 @@ html {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  display: flex;
+  justify-content: center;
 }
 
 h1,
@@ -35,4 +37,34 @@ fieldset {
 ul,
 ol {
   list-style: none;
+}
+
+.content{
+  display: flex;
+  align-items: end;
+  gap: 30px;
+  /* Весь макет можно верстать в абсолютных единицах измерения. */
+  width: 1140px; /*Можно лучше*/
+}
+
+/* Расположить элементы .search-form в строку и пропорционально распределить между ними свободное пространство, прижать их к началу контейнера. */
+.search-form{
+  display: flex;
+  left: 0;/*Надо ли? */
+  justify-content: space-between;
+}
+
+/* Установить вертикальный размер для .content__list и добавить скролл при переполнении. */
+.content__list{
+  height: 298px;/*Можно лучше*/
+  overflow:auto;
+}
+
+/* Растянуть .content__details во всю доступную ширину и высоту контейнера и добавить отступы между заголовком и зоной с карточками. */
+.content__details{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
 }
