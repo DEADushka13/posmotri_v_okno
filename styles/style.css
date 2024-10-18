@@ -165,3 +165,25 @@ ol {
   line-height: 16.2px;
   text-align: left;
 }
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+} 
+
+fieldset{
+  border: none;
+}
+
+.search-form__checkbox-list{
+  display: flex;
+}
+.search-form__label{
+  display: flex;
+  width: fit-content;
+}
