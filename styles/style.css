@@ -39,31 +39,34 @@ ol {
   list-style: none;
 }
 
-.content{
+.content {
   display: flex;
   align-items: end;
   gap: 30px;
   /* Весь макет можно верстать в абсолютных единицах измерения. */
-  width: 1140px; /*Можно лучше*/
+  width: 1140px;
+  /*Можно лучше*/
   height: 534px;
 }
 
 /* Расположить элементы .search-form в строку и пропорционально распределить между ними свободное пространство, прижать их к началу контейнера. */
-.search-form{
+.search-form {
   display: flex;
-  left: 0;/*Надо ли? */
+  left: 0;
+  /*Надо ли? */
   justify-content: space-between;
 }
 
 /* Установить вертикальный размер для .content__list и добавить скролл при переполнении. */
-.content__list{
-  height: 298px;/*Можно лучше*/
-  overflow:auto;
+.content__list {
+  height: 298px;
+  /*Можно лучше*/
+  overflow: auto;
   position: relative;
 }
 
 /* Растянуть .content__details во всю доступную ширину и высоту контейнера и добавить отступы между заголовком и зоной с карточками. */
-.content__details{
+.content__details {
   width: 100%;
   height: 100%;
   display: flex;
@@ -72,15 +75,16 @@ ol {
   justify-content: space-between;
 }
 
-.result__video-container{
-  width: 711px;/*Можно лучше*/
+.result__video-container {
+  width: 711px;
+  /*Можно лучше*/
   height: 386px;
   margin-bottom: 16px;
-  position: relative; 
+  position: relative;
 }
 
 /* Расположить видео в этот контейнер так, чтобы оно занимало всю ширину и высоту и не выходило за пределы. Потребуется указать object-fit. */
-.result__video{
+.result__video {
   object-fit: cover;
   overflow: auto;
   width: inherit;
@@ -90,7 +94,7 @@ ol {
 /* Создать вертикальные отступы между элементами .content__list-item (у всех, кроме последнего). */
 
 /* В макете от последнего тоже отступ */
-.content__list-item{
+.content__list-item {
   margin-bottom: 30px;
 }
 
@@ -100,19 +104,64 @@ ol {
 
 
 /* Расположить элементы внутри контейнера .content__video-card в строку, прижав к началу контейнера по дополнительной оси. */
-.content__video-card{
+.content__video-card {
   display: flex;
   align-items: start;
 }
 
-.content__video-card-thumbnail{
+.content__video-card-thumbnail {
   background-color: aquamarine;
   width: 194px;
   height: 103px;
   object-fit: cover;
 }
+
 /* Сделать так, чтобы .content__video-card-description-container занимал всё доступное пространство, не занятое картинкой. */
-.content__video-card-description-container{
+.content__video-card-description-container {
   width: 100%;
   height: 100%;
+}
+
+.search-form__fieldset-title {
+  font-family: "Fira Sans Condensed";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.6px;
+  text-align: left;
+}
+
+.title {
+  color: #FFFFFF;
+  font-family: "Oswald";
+  font-size: 75px;
+  font-weight: 700;
+  line-height: 70.5px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.title .content__accent {
+  color: #545050;
+}
+
+.content__card-link {
+  color: white;
+  text-decoration: none;
+}
+
+.content__video-card-title {
+  font-family: "Oswald";
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.content__video-card-description {
+  font-family: "Fira Sans Condensed";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 16.2px;
+  text-align: left;
 }
