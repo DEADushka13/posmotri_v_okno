@@ -55,6 +55,7 @@ ol {
   left: 0;
   /*Надо ли? */
   justify-content: space-between;
+  position: relative;
 }
 
 /* Установить вертикальный размер для .content__list и добавить скролл при переполнении. */
@@ -182,8 +183,67 @@ fieldset{
 
 .search-form__checkbox-list{
   display: flex;
+  justify-content: space-between;
+  width: 212px;
+  height: 22px;
 }
+
+/* Вам нужно расставить элементы внутри .search-form__label в линию. И при этом подогнать ширину контейнера под размер внутренних элементов. Для этого пригодится правило width: fit-content;. */
 .search-form__label{
   display: flex;
-  width: fit-content;
+  width: fit-content;/*Зачем это тут?*/
+  cursor: pointer;
+  gap: 1.5px;
 }
+
+/* Текстовому полю нужно задать свойство appearance: none;. Так в разных браузерах будут нужные вам стили. Это трюк. */
+input[type="text"]{
+  appearance: none;
+  /* border: none; */
+}
+
+.search-form__pseudo-checkbox{
+  width: 19px;
+  height: 19px;
+  box-sizing: border-box;
+  border: white 1px solid;
+}
+
+
+button {
+  cursor: pointer;
+  font-family: Fira Sans Condensed;
+font-size: 18px;
+font-weight: 700;
+line-height: 21.6px;
+text-align: center;
+height: 34px;
+border: 1px white solid;
+background-color: transparent;
+color: white;
+}
+.search-form__submit-button{
+  
+  position:relative;
+  bottom: 0px;/*Не работает*/
+  right: 0;
+
+  margin-top: 20px;
+  /* background-color: aquamarine; */
+  width: 194px;
+}
+.more-button{
+  /* background-color: blueviolet; */
+  width: 100%;
+  margin-bottom: 1px;/*Почему так?*/
+}
+
+/* .search-form__textfield:focus{
+  border: none;
+}
+input[type="text"]:focus{
+  border: none;
+}
+.search-form__label:has(:focus-visible){
+  border: inherit;
+} */
