@@ -18,6 +18,7 @@ html {
   background-color: #1b1919;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 h1,
@@ -47,7 +48,7 @@ ol {
   width: 1140px;
   /*Можно лучше*/
   height: 534px;
-  margin: 133px 0;
+  /* margin: 133px 0; */
 }
 
 /* Расположить элементы .search-form в строку и пропорционально распределить между ними свободное пространство, прижать их к началу контейнера. */
