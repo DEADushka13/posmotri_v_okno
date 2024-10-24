@@ -41,23 +41,25 @@ ol {
 }
 
 .content {
+  /* background-color: aquamarine; */
+  margin-top: 57px;
   display: flex;
   align-items: end;
   gap: 30px;
   /* Весь макет можно верстать в абсолютных единицах измерения. */
   width: 1140px;
   /*Можно лучше*/
-  height: 534px;
+  /* height: 534px; */
   /* margin: 133px 0; */
 }
 
 /* Расположить элементы .search-form в строку и пропорционально распределить между ними свободное пространство, прижать их к началу контейнера. */
 .search-form {
   display: flex;
-  left: 0;
+  /* left: 0; */
   /*Надо ли? */
   justify-content: space-between;
-  position: relative;
+  /* position: relative; */
 }
 
 /* Установить вертикальный размер для .content__list и добавить скролл при переполнении. */
@@ -65,7 +67,12 @@ ol {
   height: 298px;
   /*Можно лучше*/
   overflow: auto;
+  /* overflow: hidden; */
   position: relative;
+}
+
+.content__list::-webkit-scrollbar {
+  width: 0 !important
 }
 
 /* Растянуть .content__details во всю доступную ширину и высоту контейнера и добавить отступы между заголовком и зоной с карточками. */
@@ -98,7 +105,7 @@ ol {
 
 /* В макете от последнего тоже отступ */
 .content__list-item {
-  margin-bottom: 30px;
+  margin-bottom: 34px;
 }
 
 /* li.content__list-item:not(:last-of-type){
@@ -110,32 +117,41 @@ ol {
 .content__video-card {
   display: flex;
   align-items: start;
+  /* padding-right: 10px; */
 }
 
 .content__video-card-thumbnail {
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   width: 194px;
   height: 103px;
   object-fit: cover;
+  box-sizing: content-box;
+
 }
 
 /* Сделать так, чтобы .content__video-card-description-container занимал всё доступное пространство, не занятое картинкой. */
 .content__video-card-description-container {
-  width: 100%;
-  height: 100%;
+  width: 200px;
+  height: 112px;
+  /* height: 100%; */
+  overflow: hidden;
+  /* display: flex; */
+  /* flex-direction: column; */
 }
 
 .search-form__fieldset-title {
-  font-family: "Fira Sans Condensed";
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 21.6px;
   text-align: left;
+  /* color: aquamarine; */
+  margin-bottom: 5px;
 }
 
 .title {
   color: #FFFFFF;
-  font-family: "Oswald";
+  font-family: "Oswald", sans-serif;
   font-size: 75px;
   font-weight: 700;
   line-height: 70.5px;
@@ -153,16 +169,20 @@ ol {
 }
 
 .content__video-card-title {
-  font-family: "Oswald";
+  font-family: "Oswald", sans-serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 30px;
   text-align: left;
   text-transform: uppercase;
+  margin-bottom: 7px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .content__video-card-description {
-  font-family: "Fira Sans Condensed";
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 16.2px;
@@ -177,13 +197,13 @@ ol {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   white-space: nowrap;
-} 
+}
 
-fieldset{
+fieldset {
   border: none;
 }
 
-.search-form__checkbox-list{
+.search-form__checkbox-list {
   display: flex;
   justify-content: space-between;
   width: 212px;
@@ -191,20 +211,22 @@ fieldset{
 }
 
 /* Вам нужно расставить элементы внутри .search-form__label в линию. И при этом подогнать ширину контейнера под размер внутренних элементов. Для этого пригодится правило width: fit-content;. */
-.search-form__label{
+.search-form__label {
   display: flex;
-  width: fit-content;/*Зачем это тут?*/
+  width: fit-content;
+  /*Зачем это тут?*/
   cursor: pointer;
   gap: 1.5px;
 }
 
+
 /* Текстовому полю нужно задать свойство appearance: none;. Так в разных браузерах будут нужные вам стили. Это трюк. */
-input[type="text"]{
+input[type="text"] {
   appearance: none;
   /* border: none; */
 }
 
-.search-form__pseudo-checkbox{
+.search-form__pseudo-checkbox {
   width: 19px;
   height: 19px;
   box-sizing: border-box;
@@ -214,30 +236,37 @@ input[type="text"]{
 
 button {
   cursor: pointer;
-  font-family: Fira Sans Condensed;
-font-size: 18px;
-font-weight: 700;
-line-height: 21.6px;
-text-align: center;
-height: 34px;
-border: 1px white solid;
-background-color: transparent;
-color: white;
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21.6px;
+  text-align: center;
+  height: 34px;
+  border: 1px white solid;
+  background-color: transparent;
+  color: white;
+  /* box-sizing: content-box; */
+  /* background-clip: content-box; */
+  /* margin: 1px; */
 }
-.search-form__submit-button{
-  
-  position:relative;
-  bottom: 0px;/*Не работает*/
+
+.search-form__submit-button {
+
+  position: relative;
+  bottom: 0px;
+  /*Не работает*/
   right: 0;
 
   margin-top: 20px;
   /* background-color: aquamarine; */
   width: 194px;
 }
-.more-button{
+
+.more-button {
   /* background-color: blueviolet; */
   width: 100%;
-  margin-bottom: 1px;/*Почему так?*/
+  margin-bottom: 1px;
+  /*Почему так?*/
 }
 
 /* .search-form__textfield:focus{
@@ -251,4 +280,104 @@ input[type="text"]:focus{
 } */
 
 
-/* Тут должен быть шаг 6 */
+/* DEFAULT */
+
+
+.search-form__textfield {
+  border: none;
+  border-top: 1px white solid;
+  border-bottom: 1px white solid;
+  background-color: transparent;
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.6px;
+  text-align: left;
+  width: 225px;
+  color: white;
+}
+
+
+/* ACTIVE */
+
+.search-form__textfield:active {
+  border: 1px white solid;
+  border-radius: 0px;
+  /* padding: 10px; */
+  /* color: aquamarine; */
+}
+
+.search-form__pseudo-checkbox:first-of-type:active {
+  display: block;
+  width: 15px;
+  height: 15px;
+  padding: 1px;
+  background-color: white;
+  box-sizing: content-box;
+  background-clip: content-box;
+}
+
+.search-form__submit-button:active {
+  background-color: #545050;
+}
+
+/* HOVER */
+.search-form__textfield:hover {
+  cursor: text;
+}
+
+.search-form__label span:hover {
+  text-decoration: underline 1px;
+}
+
+.search-form__submit-button:hover {
+  text-decoration: underline 1px;
+}
+
+
+/* FOCUS */
+.search-form__textfield:focus {
+  border: none;
+  border-top: 1px white solid;
+  border-bottom: 1px white solid;
+  outline: white 1px solid;
+}
+
+/* input::placeholder{
+  border: red 1px solid;
+  color: blue;
+} */
+
+.search-form__label:focus {
+  outline: white 1px solid;
+}
+
+.search-form__submit-button:focus {
+  /* box-sizing: content-box; */
+  outline-offset: 1px;
+  outline: white 1px solid;
+}
+
+
+
+
+.content__card-link {
+  display: block;
+}
+
+.content__card-link:hover {
+  text-decoration: underline 1px;
+}
+
+.content__card-link:focus {
+  outline-offset: 1px;
+  outline: white 1px solid;
+}
+
+.content__card-link:active {
+  background-color: #545050;
+}
+
+.content__card-link_current {
+  background-color: #545050;
+}
