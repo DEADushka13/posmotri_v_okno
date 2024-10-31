@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+*:focus {
+  outline: none;
+}
+
 html {
   block-size: 100%;
 }
@@ -40,42 +44,36 @@ ol {
   list-style: none;
 }
 
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .content {
-  /* background-color: aquamarine; */
   margin-top: 57px;
   display: flex;
   align-items: end;
   gap: 30px;
-  /* Весь макет можно верстать в абсолютных единицах измерения. */
   width: 1140px;
-  /*Можно лучше*/
-  /* height: 534px; */
-  /* margin: 133px 0; */
 }
 
-/* Расположить элементы .search-form в строку и пропорционально распределить между ними свободное пространство, прижать их к началу контейнера. */
-.search-form {
-  display: flex;
-  /* left: 0; */
-  /*Надо ли? */
-  justify-content: space-between;
-  /* position: relative; */
-}
 
-/* Установить вертикальный размер для .content__list и добавить скролл при переполнении. */
+
 .content__list {
   height: 298px;
-  /*Можно лучше*/
   overflow: auto;
-  /* overflow: hidden; */
   position: relative;
 }
 
-.content__list::-webkit-scrollbar {
+/* .content__list::-webkit-scrollbar {
   width: 0 !important
-}
+} */
 
-/* Растянуть .content__details во всю доступную ширину и высоту контейнера и добавить отступы между заголовком и зоной с карточками. */
 .content__details {
   width: 100%;
   height: 100%;
@@ -88,12 +86,12 @@ ol {
 .result__video-container {
   width: 711px;
   /*Можно лучше*/
+  /* background-color: aqua; */
   height: 386px;
   margin-bottom: 16px;
   position: relative;
 }
 
-/* Расположить видео в этот контейнер так, чтобы оно занимало всю ширину и высоту и не выходило за пределы. Потребуется указать object-fit. */
 .result__video {
   object-fit: cover;
   overflow: auto;
@@ -101,42 +99,33 @@ ol {
   height: inherit;
 }
 
-/* Создать вертикальные отступы между элементами .content__list-item (у всех, кроме последнего). */
-
-/* В макете от последнего тоже отступ */
 .content__list-item {
   margin-bottom: 34px;
 }
 
-/* li.content__list-item:not(:last-of-type){
-  margin-bottom: 30px;
-} */
-
-
-/* Расположить элементы внутри контейнера .content__video-card в строку, прижав к началу контейнера по дополнительной оси. */
 .content__video-card {
   display: flex;
   align-items: start;
-  /* padding-right: 10px; */
+  /* height: 112px; */
 }
 
 .content__video-card-thumbnail {
-  /* background-color: aquamarine; */
   width: 194px;
-  height: 103px;
+  height: 100%;
   object-fit: cover;
   box-sizing: content-box;
 
 }
 
-/* Сделать так, чтобы .content__video-card-description-container занимал всё доступное пространство, не занятое картинкой. */
 .content__video-card-description-container {
   width: 200px;
-  height: 112px;
-  /* height: 100%; */
+  
   overflow: hidden;
-  /* display: flex; */
-  /* flex-direction: column; */
+}
+
+.search-form {
+  display: flex;
+  justify-content: space-between;
 }
 
 .search-form__fieldset-title {
@@ -145,7 +134,6 @@ ol {
   font-weight: 400;
   line-height: 21.6px;
   text-align: left;
-  /* color: aquamarine; */
   margin-bottom: 5px;
 }
 
@@ -161,11 +149,6 @@ ol {
 
 .title .content__accent {
   color: #545050;
-}
-
-.content__card-link {
-  color: white;
-  text-decoration: none;
 }
 
 .content__video-card-title {
@@ -189,15 +172,7 @@ ol {
   text-align: left;
 }
 
-.visually-hidden {
-  position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
+
 
 fieldset {
   border: none;
@@ -207,31 +182,27 @@ fieldset {
   display: flex;
   justify-content: space-between;
   width: 212px;
-  height: 22px;
 }
 
-/* Вам нужно расставить элементы внутри .search-form__label в линию. И при этом подогнать ширину контейнера под размер внутренних элементов. Для этого пригодится правило width: fit-content;. */
+
 .search-form__label {
   display: flex;
   width: fit-content;
-  /*Зачем это тут?*/
   cursor: pointer;
   gap: 1.5px;
 }
 
 
-/* Текстовому полю нужно задать свойство appearance: none;. Так в разных браузерах будут нужные вам стили. Это трюк. */
-input[type="text"] {
-  appearance: none;
-  /* border: none; */
+
+.search-form__label-text {
+  margin-left: 5px;
 }
 
-.search-form__pseudo-checkbox {
-  width: 19px;
-  height: 19px;
-  box-sizing: border-box;
-  border: white 1px solid;
+
+input[type="text"] {
+  appearance: none;
 }
+
 
 
 button {
@@ -245,40 +216,38 @@ button {
   border: 1px white solid;
   background-color: transparent;
   color: white;
-  /* box-sizing: content-box; */
-  /* background-clip: content-box; */
-  /* margin: 1px; */
 }
 
 .search-form__submit-button {
-
-  position: relative;
-  bottom: 0px;
-  /*Не работает*/
-  right: 0;
-
   margin-top: 20px;
-  /* background-color: aquamarine; */
   width: 194px;
 }
 
 .more-button {
-  /* background-color: blueviolet; */
+
   width: 100%;
   margin-bottom: 1px;
-  /*Почему так?*/
+
 }
 
-/* .search-form__textfield:focus{
-  border: none;
-}
-input[type="text"]:focus{
-  border: none;
-}
-.search-form__label:has(:focus-visible){
-  border: inherit;
-} */
 
+.search-form__pseudo-checkbox {
+  width: 19px;
+  height: 19px;
+  border: white 1px solid;
+}
+
+
+input[type='checkbox']:checked + .search-form__pseudo-checkbox {
+  background-color: white;
+  width: 15px;
+  height: 15px;
+  background-position: center;
+  background-size: contain;
+  padding: 1px;
+  box-sizing: content-box;
+  background-clip: content-box;
+}
 
 /* DEFAULT */
 
@@ -298,80 +267,67 @@ input[type="text"]:focus{
 }
 
 
+
 /* ACTIVE */
 
 .search-form__textfield:active {
   border: 1px white solid;
   border-radius: 0px;
-  /* padding: 10px; */
-  /* color: aquamarine; */
 }
 
-.search-form__pseudo-checkbox:first-of-type:active {
-  display: block;
-  width: 15px;
-  height: 15px;
-  padding: 1px;
-  background-color: white;
-  box-sizing: content-box;
-  background-clip: content-box;
-}
 
-.search-form__submit-button:active {
+.button:active {
   background-color: #545050;
 }
 
 /* HOVER */
-.search-form__textfield:hover {
-  cursor: text;
-}
-
-.search-form__label span:hover {
+.search-form__label:hover span{
   text-decoration: underline 1px;
 }
+/* .search-form__label span:hover {
+  text-decoration: underline 1px;
+} */
 
-.search-form__submit-button:hover {
+.button:hover {
   text-decoration: underline 1px;
 }
 
 
 /* FOCUS */
-.search-form__textfield:focus {
+.search-form__textfield:focus-visible {
   border: none;
   border-top: 1px white solid;
   border-bottom: 1px white solid;
   outline: white 1px solid;
 }
 
-/* input::placeholder{
-  border: red 1px solid;
-  color: blue;
-} */
 
-.search-form__label:focus {
+.search-form__label:focus-visible {
   outline: white 1px solid;
 }
 
-.search-form__submit-button:focus {
-  /* box-sizing: content-box; */
+.button:focus-visible {
   outline-offset: 1px;
   outline: white 1px solid;
 }
 
-
-
-
 .content__card-link {
   display: block;
+  color: white;
+  text-decoration: none;
 }
 
 .content__card-link:hover {
   text-decoration: underline 1px;
 }
 
-.content__card-link:focus {
-  outline-offset: 1px;
+/* .content__list-item:focus-visible{
+  outline: 1px white solid;
+} */
+.content__card-link:focus-visible {
+  /* outline-offset: 1px;  */
   outline: white 1px solid;
+  /* padding-left  : 1px; */
 }
 
 .content__card-link:active {
@@ -381,3 +337,4 @@ input[type="text"]:focus{
 .content__card-link_current {
   background-color: #545050;
 }
+
