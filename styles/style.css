@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-*:focus {
-  outline: none;
-}
-
 html {
   block-size: 100%;
 }
@@ -210,13 +206,15 @@ button {
   margin-bottom: 1px;
 }
 
-.search-form__pseudo-checkbox {
+.search-form__pseudo-checkbox::before {
+  content: "";
+  display: block;
   width: 19px;
   height: 19px;
   border: white 1px solid;
 }
 
-input[type="checkbox"]:checked + .search-form__pseudo-checkbox {
+input[type="checkbox"]:checked + .search-form__pseudo-checkbox::before {
   background-color: white;
   width: 15px;
   height: 15px;
@@ -262,6 +260,10 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox {
 }
 
 /* FOCUS */
+.search-form__textfield:focus {
+  outline: none;
+}
+
 .search-form__textfield:focus-visible {
   border: none;
   border-top: 1px white solid;
@@ -269,8 +271,16 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox {
   outline: white 1px solid;
 }
 
-.search-form__label:focus-visible {
+.search-form__label:focus {
+  outline: none;
+}
+
+.search-form__label:has(:focus-visible) {
   outline: white 1px solid;
+}
+
+.button:focus {
+  outline: none;
 }
 
 .button:focus-visible {
@@ -287,7 +297,9 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox {
 .content__card-link:hover {
   text-decoration: underline 1px;
 }
-
+.content__card-link:focus {
+  outline: none;
+}
 .content__card-link:focus-visible {
   margin-left: 2px;
   outline: white 1px solid;
